@@ -1,0 +1,2 @@
+cd C:\Projetos\twitter_clone\public
+php -S localhost:8080

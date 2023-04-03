@@ -13,7 +13,7 @@ class AppController extends Action {
         $this->validaAutenticacao();
             
         //recuperação dos tweets
-        $tweet = Container::getModel(('Tweet'));
+        $tweet = Container::getModel('Tweet');
 
         $tweet->__set('id_usuario', $_SESSION['id']);
 
@@ -54,8 +54,6 @@ class AppController extends Action {
 
         $pesquisarPor = isset($_GET['pesquisarPor']) ? $_GET['pesquisarPor'] : '';
 
-        echo 'Pesquisando por: '.$pesquisarPor;
-
         $usuarios = array();
 
         if($pesquisarPor != '') {
@@ -86,6 +84,9 @@ class AppController extends Action {
         } else if($acao == 'deixar_de_seguir') {
             $usuario->deixarSeguirUsuario($id_usuario_seguindo);
         }
+
+        header('Location: /quem_seguir');
+
     }
 
 }
